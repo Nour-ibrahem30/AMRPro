@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Industrial Transport Robot | Smart Factory Automation</title>
+    <meta name="description" content="Next-generation autonomous mobile robot for industrial material handling">
+    <link rel="stylesheet" href="pro-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="brand-icon"><i class="fas fa-robot"></i></div>
+                <span class="brand-text">AMR<span class="brand-accent">Pro</span></span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#problem" class="nav-link">The Problem</a></li>
+                <li><a href="#architecture" class="nav-link">Architecture</a></li>
+                <li><a href="#movement" class="nav-link">Movement</a></li>
+                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#results" class="nav-link">Results</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+            <canvas id="hero-canvas"></canvas>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Next-Gen Industrial Automation</div>
+                <h1 class="hero-title">Autonomous Industrial<br><span class="gradient-text">Transport Robot</span></h1>
+                <p class="hero-subtitle">Smart Automation for Industrial Material Handling</p>
+                <p class="hero-description">Revolutionizing factory logistics with autonomous navigation, intelligent path planning, and seamless integration into existing manufacturing workflows.</p>
+                <div class="hero-buttons">
+                    <a href="#dashboard" class="btn btn-primary">
+                        <span>Watch Demo</span>
+                        <i class="fas fa-play"></i>
+                    </a>
+                    <a href="#architecture" class="btn btn-secondary">
+                        <i class="fas fa-cogs"></i>
+                        <span>View Architecture</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">28%</div>
+                        <div class="stat-label">Cost Reduction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99.2%</div>
+                        <div class="stat-label">Navigation Accuracy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Operation Time</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-robot">
+                <div class="robot-container" id="heroRobot"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">The Challenge</span>
+                <h2 class="section-title">Industrial Logistics Problems</h2>
+                <p class="section-subtitle">Traditional material handling faces critical inefficiencies</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card" data-problem="1">
+                    <div class="problem-icon"><i class="fas fa-hand-paper"></i></div>
+                    <h3>Manual Transportation</h3>
+                    <p>Workers spend 40% of time moving materials between stations, reducing productivity</p>
+                </div>
+                <div class="problem-card" data-problem="2">
+                    <div class="problem-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h3>Human Errors</h3>
+                    <p>Misplaced items and delivery mistakes cause delays and quality issues</p>
+                </div>
+                <div class="problem-card" data-problem="3">
+                    <div class="problem-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Safety Risks</h3>
+                    <p>Heavy lifting and forklift operations create workplace hazards</p>
+                </div>
+                <div class="problem-card" data-problem="4">
+                    <div class="problem-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Slow Logistics</h3>
+                    <p>Bottlenecks in material flow slow down entire production lines</p>
+                </div>
+                <div class="problem-card" data-problem="5">
+                    <div class="problem-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Inefficient Workflow</h3>
+                    <p>Poor coordination between stations leads to idle time and waste</p>
+                </div>
+            </div>
+            <div class="solution-reveal">
+                <div class="solution-line"></div>
+                <div class="solution-content">
+                    <div class="solution-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>The Solution: Autonomous Mobile Robot</h3>
+                    <p>Our AMR system eliminates these challenges with intelligent automation, real-time navigation, and seamless factory integration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture-section" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">System Design</span>
+                <h2 class="section-title">Robot System Architecture</h2>
+                <p class="section-subtitle">Integrated subsystems working in perfect harmony</p>
+            </div>
+            <div class="architecture-grid">
+                <div class="arch-card">
+                    <div class="arch-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Mechanical System</h3>
+                    <ul>
+                        <li>Mecanum wheel omnidirectional drive</li>
+                        <li>Scissor lift mechanism (0-500mm)</li>
+                        <li>Payload capacity: 50kg</li>
+                        <li>Compact chassis design</li>
+                    </ul>
+                </div>
+                <div class="arch-card">
+                    <div class="arch-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Electrical System</h3>
+                    <ul>
+                        <li>48V lithium-ion battery pack</li>
+                        <li>High-torque DC motors (4x)</li>
+                        <li>Power management system</li>
+                        <li>8-hour continuous operation</li>
+                    </ul>
+                </div>
+                <div class="arch-card">
+                    <div class="arch-icon"><i class="fas fa-radar"></i></div>
+                    <h3>Sensors System</h3>
+                    <ul>
+                        <li>360° LiDAR scanner</li>
+                        <li>Depth camera (RGB-D)</li>
+                        <li>IMU for orientation</li>
+                        <li>Ultrasonic proximity sensors</li>
+                    </ul>
+                </div>
+                <div class="arch-card">
+                    <div class="arch-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Control System</h3>
+                    <ul>
+                        <li>Raspberry Pi 4 controller</li>
+                        <li>Real-time path planning</li>
+                        <li>Obstacle avoidance algorithms</li>
+                        <li>Emergency stop system</li>
+                    </ul>
+                </div>
+                <div class="arch-card">
+                    <div class="arch-icon"><i class="fas fa-code"></i></div>
+                    <h3>Software System</h3>
+                    <ul>
+                        <li>ROS (Robot Operating System)</li>
+                        <li>SLAM navigation</li>
+                        <li>A* path planning</li>
+                        <li>Fleet management integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movement Simulation Section -->
+    <section class="movement-section" id="movement">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Navigation System</span>
+                <h2 class="section-title">Robot Movement Simulation</h2>
+                <p class="section-subtitle">Advanced omnidirectional navigation and obstacle avoidance</p>
+            </div>
+            <div class="movement-grid">
+                <div class="movement-demo">
+                    <canvas id="movementCanvas"></canvas>
+                    <div class="movement-controls">
+                        <button class="move-btn" data-direction="forward"><i class="fas fa-arrow-up"></i></button>
+                        <button class="move-btn" data-direction="left"><i class="fas fa-arrow-left"></i></button>
+                        <button class="move-btn" data-direction="stop"><i class="fas fa-stop"></i></button>
+                        <button class="move-btn" data-direction="right"><i class="fas fa-arrow-right"></i></button>
+                        <button class="move-btn" data-direction="backward"><i class="fas fa-arrow-down"></i></button>
+                    </div>
+                </div>
+                <div class="movement-features">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-compass"></i></div>
+                        <h3>Omnidirectional Movement</h3>
+                        <p>Mecanum wheels enable movement in any direction without rotating the chassis</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-route"></i></div>
+                        <h3>A* Path Planning</h3>
+                        <p>Optimal route calculation considering obstacles and efficiency</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Obstacle Avoidance</h3>
+                        <p>Real-time detection and dynamic path adjustment using DWA algorithm</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <h3>SLAM Navigation</h3>
+                        <p>Simultaneous localization and mapping for autonomous operation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Calculations Section -->
+    <section class="calculations-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Engineering Analysis</span>
+                <h2 class="section-title">System Performance Metrics</h2>
+                <p class="section-subtitle">Technical specifications and calculations</p>
+            </div>
+            <div class="calc-grid">
+                <div class="calc-card">
+                    <div class="calc-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Kinematics Model</h3>
+                    <div class="calc-value">1.2 m/s</div>
+                    <p>Maximum velocity with omnidirectional control</p>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Motor Torque</h3>
+                    <div class="calc-value">20 Nm</div>
+                    <p>Combined torque output (4 motors)</p>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-icon"><i class="fas fa-battery-full"></i></div>
+                    <h3>Battery Power</h3>
+                    <div class="calc-value">48V / 20Ah</div>
+                    <p>Lithium-ion battery capacity</p>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-icon"><i class="fas fa-plug"></i></div>
+                    <h3>Energy Consumption</h3>
+                    <div class="calc-value">120W avg</div>
+                    <p>Average power draw during operation</p>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>System Efficiency</h3>
+                    <div class="calc-value">87%</div>
+                    <p>Overall mechanical efficiency</p>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Operation Time</h3>
+                    <div class="calc-value">8 hours</div>
+                    <p>Continuous runtime per charge</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Robot Video Showcase Section -->
+    <section class="robot-video-section" id="dashboard">
+        <div class="container-fluid">
+            <div class="section-header">
+                <span class="section-badge">Live Demonstration</span>
+                <h2 class="section-title">See The Robot In Action</h2>
+                <p class="section-subtitle">Watch our autonomous mobile robot navigate and operate in real-world scenarios</p>
+            </div>
+            <div class="video-showcase-container">
+                <div class="video-wrapper">
+                    <div class="video-frame">
+                        <iframe 
+                            id="robotVideo"
+                            src="https://www.youtube.com/embed/dHmHtQfvbyI?si=VYZkXG6opNOgvz6K&rel=0&modestbranding=1&showinfo=0" 
+                            title="Autonomous Mobile Robot Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-overlay" id="videoOverlay">
+                        <div class="play-button" id="playButton">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-title">Watch Robot Demo</div>
+                    </div>
+                </div>
+                <div class="video-features">
+                    <div class="feature-highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3>Autonomous Navigation</h3>
+                        <p>Watch the robot navigate complex environments using SLAM and path planning algorithms</p>
+                    </div>
+                    <div class="feature-highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Obstacle Avoidance</h3>
+                        <p>Real-time detection and dynamic path adjustment for safe operation</p>
+                    </div>
+                    <div class="feature-highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <h3>Material Handling</h3>
+                        <p>Efficient pickup and delivery of materials between production stations</p>
+                    </div>
+                    <div class="feature-highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>Smart Integration</h3>
+                        <p>Seamless connection with factory management systems and IoT devices</p>
+                    </div>
+                </div>
+            </div>
+            <div class="video-stats">
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">Continuous Operation</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-value">1.2 m/s</div>
+                        <div class="stat-label">Maximum Speed</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-weight-hanging"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-value">50 kg</div>
+                        <div class="stat-label">Payload Capacity</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-battery-full"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-value">8 hours</div>
+                        <div class="stat-label">Battery Life</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="results">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Performance</span>
+                <h2 class="section-title">System Performance Results</h2>
+                <p class="section-subtitle">Proven efficiency and reliability metrics</p>
+            </div>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-icon"><i class="fas fa-weight-hanging"></i></div>
+                    <div class="result-number" data-target="50">0</div>
+                    <div class="result-unit">kg</div>
+                    <h3>Payload Capacity</h3>
+                    <p>Maximum load handling capability</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon"><i class="fas fa-crosshairs"></i></div>
+                    <div class="result-number" data-target="99.2">0</div>
+                    <div class="result-unit">%</div>
+                    <h3>Navigation Accuracy</h3>
+                    <p>Precise positioning and path following</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="result-number" data-target="100">0</div>
+                    <div class="result-unit">%</div>
+                    <h3>Obstacle Detection</h3>
+                    <p>Real-time hazard identification</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="result-number" data-target="98.5">0</div>
+                    <div class="result-unit">%</div>
+                    <h3>System Stability</h3>
+                    <p>Uptime and reliability rating</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="result-number" data-target="87">0</div>
+                    <div class="result-unit">%</div>
+                    <h3>Operational Efficiency</h3>
+                    <p>Overall system performance</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="result-number" data-target="28">0</div>
+                    <div class="result-unit">%</div>
+                    <h3>Cost Reduction</h3>
+                    <p>Savings vs manual operations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Improvements Section -->
+    <section class="future-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Innovation</span>
+                <h2 class="section-title">Future Development Roadmap</h2>
+                <p class="section-subtitle">Next-generation capabilities in development</p>
+            </div>
+            <div class="future-grid">
+                <div class="future-card">
+                    <div class="future-number">01</div>
+                    <div class="future-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI Navigation</h3>
+                    <p>Deep learning for predictive path planning and adaptive behavior in dynamic environments</p>
+                </div>
+                <div class="future-card">
+                    <div class="future-number">02</div>
+                    <div class="future-icon"><i class="fas fa-satellite"></i></div>
+                    <h3>Advanced Sensors</h3>
+                    <p>3D LiDAR and thermal imaging for enhanced environmental perception</p>
+                </div>
+                <div class="future-card">
+                    <div class="future-number">03</div>
+                    <div class="future-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Fleet Coordination</h3>
+                    <p>Multi-robot task allocation and collision-free path planning for large fleets</p>
+                </div>
+                <div class="future-card">
+                    <div class="future-number">04</div>
+                    <div class="future-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Industrial Deployment</h3>
+                    <p>Full-scale implementation in manufacturing facilities with MES integration</p>
+                </div>
+                <div class="future-card">
+                    <div class="future-number">05</div>
+                    <div class="future-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+                    <h3>Scalability</h3>
+                    <p>Modular design for easy customization and expansion to different industries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Team</span>
+                <h2 class="section-title">Meet the Team</h2>
+                <p class="section-subtitle">Mechatronics Engineering Students - Graduation Project 2026</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="avatar-placeholder"><i class="fas fa-user"></i></div>
+                    </div>
+                    <h3>Youssef Ibrahim</h3>
+                    <p class="team-role">Mechatronics Engineer</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="avatar-placeholder"><i class="fas fa-user"></i></div>
+                    </div>
+                    <h3>Fares Elgohary</h3>
+                    <p class="team-role">Mechatronics Engineer</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="avatar-placeholder"><i class="fas fa-user"></i></div>
+                    </div>
+                    <h3>Yassin Emam</h3>
+                    <p class="team-role">Mechatronics Engineer</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="avatar-placeholder"><i class="fas fa-user"></i></div>
+                    </div>
+                    <h3>Tarek Hamdy</h3>
+                    <p class="team-role">Mechatronics Engineer</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="avatar-placeholder"><i class="fas fa-user"></i></div>
+                    </div>
+                    <h3>Marwan Khaled</h3>
+                    <p class="team-role">Mechatronics Engineer</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="avatar-placeholder"><i class="fas fa-user"></i></div>
+                    </div>
+                    <h3>Menna Mohamed</h3>
+                    <p class="team-role">Mechatronics Engineer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-simple">
+                <div class="footer-brand">
+                    <div class="brand-icon"><i class="fas fa-robot"></i></div>
+                    <span class="brand-text">AMR<span class="brand-accent">Pro</span></span>
+                </div>
+                <p class="footer-description">
+                    Autonomous Industrial Transport Robot - Next-generation smart factory automation solution 
+                    for efficient material handling and logistics optimization.
+                </p>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 AMR Project - Graduation Project, Mechatronics Engineering. All rights reserved.</p>
+                    <p>Made With <a href="https://nouribrahem.vercel.app/" class="Developer" target="blank">Nour Ibrahim..</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar">
+        <div class="scroll-progress-fill" id="scrollProgressFill"></div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-robot">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h2>Loading AMR Pro</h2>
+            <div class="loading-bar">
+                <div class="loading-bar-fill" id="loadingBarFill"></div>
+            </div>
+            <p class="loading-text">Initializing 3D models...</p>
+        </div>
+    </div>
+
+    <!-- Section Indicators -->
+    <div class="section-indicators">
+        <a href="#home" class="indicator" data-section="home" aria-label="Home"></a>
+        <a href="#problem" class="indicator" data-section="problem" aria-label="Problem"></a>
+        <a href="#architecture" class="indicator" data-section="architecture" aria-label="Architecture"></a>
+        <a href="#movement" class="indicator" data-section="movement" aria-label="Movement"></a>
+        <a href="#dashboard" class="indicator" data-section="dashboard" aria-label="Dashboard"></a>
+        <a href="#results" class="indicator" data-section="results" aria-label="Results"></a>
+        <a href="#team" class="indicator" data-section="team" aria-label="Team"></a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="pro-script.js"></script>
+    <script src="robot-in-sections.js"></script>
+</body>
+</html>

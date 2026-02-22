@@ -1,0 +1,37 @@
+{
+  "name": "amr-project-website",
+  "version": "1.0.0",
+  "description": "Professional website for Autonomous Industrial Transport Robot (AMR) graduation project with advanced 3D effects and animations",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000 -o",
+    "dev": "live-server --port=8000",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "echo 'Deploy to your hosting service'"
+  },
+  "keywords": [
+    "AMR",
+    "Autonomous Robot",
+    "3D Website",
+    "Three.js",
+    "GSAP",
+    "Particles.js",
+    "Robotics",
+    "Graduation Project",
+    "Industrial Automation"
+  ],
+  "author": "AMR Project Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/amr-project"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
